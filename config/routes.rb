@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 root 'welcome#home'
 get 'about', to: 'welcome#about' # I think the # means sub of class welcome
 
+resources :articles
+
 end

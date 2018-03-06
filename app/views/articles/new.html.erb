@@ -1,0 +1,22 @@
+<h1>creat an article</h1>
+
+<% if @article.errors.any? %>
+  <ul>
+    <% @article.errors.full_messages.each do |thisVarName| %>
+      <li><%= thisVarName %></li>
+    <%end%>
+  </ul>
+<%end %>
+
+<%= form_for @article do |myVar| %>
+<p>
+  <%= myVar.label :title %></br>
+<%= myVar.text_field :title %>
+</p>
+<p>
+<%= myVar.label :description %></br>
+<%= myVar.text_area :description %>
+</p>
+
+<%= myVar.submit %>
+<% end %>
