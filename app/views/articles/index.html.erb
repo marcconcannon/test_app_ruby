@@ -1,0 +1,24 @@
+<h1> All the articles </h1>
+<%= link_to "Creat new article", new_article_path %></br>
+<table>
+<tr>
+  <td>title  </td>
+  <td> description </td>
+  <td> edit </td>
+    <td> Show </td>
+      <td> edit2 </td>
+      <td> Delete </td>
+  </tr>
+<% @articleS.each do |theArticle| %>
+<tr>
+  <td><%= theArticle.title %> </td>
+  <td><%= theArticle.description %> </td>
+  <td><a href="articles/<%= theArticle.id %>/edit"> edit </a> </td>
+  <td><%= link_to "Show", article_path(theArticle) %></td>
+  <td><%= link_to "EDit 2", edit_article_path(theArticle) %></td>
+  <td><%= link_to "Delete", article_path(theArticle), method: :delete, data:{confirm: "Are you sure?"} %></td>
+  </tr>
+
+<% end %>
+
+</table>
