@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articleS = Article.all
+    @articles = Article.paginate(page: params[:page], per_page: 5)
   end
 
   def edit
@@ -27,7 +27,9 @@ class ArticlesController < ApplicationController
 
   def create
     # render plain: params[:article].inspect
+    #debugger # allows me to step though in server console
     @article = Article.new(article_params)
+  #  @article.user = User.first
     if @article.save
       flash[:notice] = 'Article was saved BOOM' # we added an enrty in application GHTML wrapper to use this
       redirect_to article_path(@article)
@@ -53,7 +55,11 @@ class ArticlesController < ApplicationController
   private
 
   def set_marcs_article
-    @article = Article.find(params[:id])
+    if ( @article = Article.find(params[:id]))
+
+   else
+    @article = null
+    end
   end
 
   def article_params

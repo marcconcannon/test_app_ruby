@@ -1,0 +1,11 @@
+<h1>Here are all the Users.</h1>
+
+<table>
+<% @users.each do |theUser| %>
+<tr>
+<td><%= link_to theUser.username , user_path(theUser) %> </td>
+<td> <%= link_to gravatorMarc_for(theUser), user_path(theUser) %>  </td>
+<td> <%= pluralize(theUser.articles.count, "stupid article") %>  </td>
+</tr>
+<%end %>
+</table>

@@ -1,0 +1,12 @@
+<h1> EDIT</h1>
+
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |thisVarName| %>
+      <li><%= thisVarName %></li>
+    <%end%>
+  </ul>
+<%end %>
+
+
+<%= render 'form' %>

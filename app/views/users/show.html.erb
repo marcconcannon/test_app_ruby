@@ -1,0 +1,16 @@
+<h1> Welcome to <%= @user.username %>'s page </h1>
+
+<div>
+
+<%= gravatorMarc_for @user %></br>
+<%= @user.email %>
+</div>
+<h4><%= @user.username %>'s Articles'</h4>
+<%= @user.articles.count %>
+<%= render 'articles/article', articles: @user.articles %>
+<BR>
+  !!!!!!!!!!!! PAginated view !!!!!!!!!!!!!!
+<BR>
+  <%= will_paginate @user_articles%>
+<%= render 'articles/article', articles: @user_articles %>
+  <%= will_paginate @user_articles%>

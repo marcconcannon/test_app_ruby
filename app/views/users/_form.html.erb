@@ -1,0 +1,21 @@
+<%= form_for(@user, :html => {class:"form-horizontal", role: "form"}) do |myVar| %>
+<p>
+  <%= myVar.label :Nickname %></br>
+<%= myVar.text_field :username%>
+</p>
+<p>
+  <%= myVar.label :email %></br>
+<%= myVar.text_field :email %>
+</p>
+<p>
+<%= myVar.label :password %></br>
+<%= myVar.password_field :password %>
+</p>
+<p>
+<%= myVar.text_field :username2, class: "my-css-class", placeholder: "do not use", autofocus: true %></br>
+
+</p>
+
+
+<%= myVar.submit (@user.new_record? ? "Sign up time" : "Update it Man") %>
+<% end %>

@@ -1,4 +1,13 @@
 <h1>Showing the selected article </h1>
 
+<% if @article %>
 <p> title : <%= @article.title %></p>
+<% if @article.user %>
+<p> Creator : <%= @article.user.username %></p>
+<p> Has : <%= pluralize(@article.user.articles.count, "article") %></p>
+<% end %>
 <p> description : <%= @article.description %> </p>
+
+<% else %>
+Opps no article found mo fo.
+<% end%>
